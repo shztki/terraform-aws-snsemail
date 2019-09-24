@@ -9,6 +9,8 @@
  * }
  */
 
+data "aws_region" "current" {}
+
 resource "aws_sns_topic" "this" {
   name         = "${var.topic_name}"
   display_name = "${var.topic_display_name}"
@@ -27,7 +29,8 @@ resource "null_resource" "sns_subscribe" {
       aws sns subscribe \
         --topic-arn ${aws_sns_topic.this.arn} \
         --protocol ${var.protocol} \
-        --notification-endpoint ${element(var.emails, count.index)}
+        --notification-endpoint ${element(var.emails, count.index)} \
+        --region ${data.aws_region.current.name}
     EOF
   }
 }
