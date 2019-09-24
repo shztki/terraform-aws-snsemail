@@ -1,12 +1,13 @@
 /**
- * Usage:
- *
+ * ## Usage:
+ * ```
  * module "sns_myself" {
  *   source             = "git::https://github.com/shztki/terraform-aws-snsemail.git?ref=1.0.0"
  *   topic_name         = "notification-myself"
  *   topic_display_name = "notification-myself"
- *   emails             = ["myself@exapmle.com, myself2@example.com"]
+ *   emails             = ["myself@exapmle.com", "myself2@example.com"]
  * }
+ * ```
  */
 
 data "aws_region" "current" {}
