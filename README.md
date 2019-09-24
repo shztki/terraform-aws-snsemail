@@ -15,6 +15,7 @@ aws sns unsubscribe --subscription-arn YOUR_SUBSCRIPTION_ARN
 ## Usage:
 ```
 module "sns_myself" {
+  region             = "ap-northeast-1"
   source             = "git::https://github.com/shztki/terraform-aws-snsemail.git?ref=1.0.0"
   topic_name         = "notification-myself"
   topic_display_name = "notification-myself"
@@ -28,6 +29,7 @@ module "sns_myself" {
 |------|-------------|:----:|:-----:|:-----:|
 | emails | Email address List. | list | n/a | yes |
 | protocol | This module create only Email protocol Subscription. | string | `"email"` | no |
+| region | Specify AWS Region. | string | n/a | yes |
 | topic\_display\_name | Display name for the SNS topic. | string | n/a | yes |
 | topic\_name | A friendly name for SNS topic. | string | n/a | yes |
 

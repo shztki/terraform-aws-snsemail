@@ -1,3 +1,8 @@
+variable "region" {
+  type        = "string"
+  description = "Specify AWS Region."
+}
+
 variable "topic_name" {
   type        = "string"
   description = "A friendly name for SNS topic."
